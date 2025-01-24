@@ -1,0 +1,14 @@
+C:\Cursos\.net\linqProyect\bin\Debug\net8.0\linqProyect.exe
+C:\Cursos\.net\linqProyect\bin\Debug\net8.0\linqProyect.deps.json
+C:\Cursos\.net\linqProyect\bin\Debug\net8.0\linqProyect.runtimeconfig.json
+C:\Cursos\.net\linqProyect\bin\Debug\net8.0\linqProyect.dll
+C:\Cursos\.net\linqProyect\bin\Debug\net8.0\linqProyect.pdb
+C:\Cursos\.net\linqProyect\obj\Debug\net8.0\linqProyect.GeneratedMSBuildEditorConfig.editorconfig
+C:\Cursos\.net\linqProyect\obj\Debug\net8.0\linqProyect.AssemblyInfoInputs.cache
+C:\Cursos\.net\linqProyect\obj\Debug\net8.0\linqProyect.AssemblyInfo.cs
+C:\Cursos\.net\linqProyect\obj\Debug\net8.0\linqProyect.csproj.CoreCompileInputs.cache
+C:\Cursos\.net\linqProyect\obj\Debug\net8.0\linqProyect.dll
+C:\Cursos\.net\linqProyect\obj\Debug\net8.0\refint\linqProyect.dll
+C:\Cursos\.net\linqProyect\obj\Debug\net8.0\linqProyect.pdb
+C:\Cursos\.net\linqProyect\obj\Debug\net8.0\linqProyect.genruntimeconfig.cache
+C:\Cursos\.net\linqProyect\obj\Debug\net8.0\ref\linqProyect.dll
