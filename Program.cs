@@ -19,6 +19,10 @@ ImprimirValores(queries.LibrosConMasde250Pag());
 //METODO PARA COMPROBAR UNA CARACTERISTICA
 ImprimirValores(queries.LibrosDePython());
 
+//METODOS DE ORDENAMIENTO
+ImprimirValores(queries.OrdenJava());
+ImprimirValores(queries.LibrosDescendentes());
+
 queries.Linea();
 Console.WriteLine($"Algun libro no tiene status = {queries.TodoLosLibrosTienenStatus()}");
 Console.WriteLine($"Algun libro fue publicado en 2005 = {queries.AlgunLibroFuePublicadoEn()}");
