@@ -79,5 +79,57 @@ namespace linqProyect
         {
             return librosCollection.Where(p => p.PageCount > 450).OrderByDescending(p => p.PageCount);
         }
+
+        public IEnumerable<Book> TresPrimeros()
+        {
+            return librosCollection
+            .Where(p => p.Categories.Contains("Java"))
+            .OrderByDescending(p => p.PublishedDate)        //PODEMOS USAR OrderBy para alterar el orden
+            .Take(3);
+        }
+
+        public IEnumerable<Book> MasdeCUtrocientas()
+        {
+            return librosCollection
+            .Where(p => p.PageCount > 400)
+            .Take(4)
+            .Skip(2);
+        }
+
+        public IEnumerable<Book> TresPrimerosLibros()
+        {
+            return librosCollection.Take(3)
+            .Select(p => new Book() {Title = p.Title,PageCount = p.PageCount});
+        }
+
+        public long CantidadLibros()
+        {
+            //public int si se usa Count
+            //TRES FORMAS DE IMPLEMETAR count y longcount
+
+            return librosCollection.LongCount(p => p.PageCount >= 200 && p.PageCount <= 500);
+            //return librosCollection.Where(p => p.PageCount >= 200 && p.PageCount <= 500).LongCount();
+            //return librosCollection.Where(p => p.PageCount >= 200 && p.PageCount <= 500).Count();
+        }
+
+        public DateTime FechaMasAntigua()
+        {
+            return librosCollection.Min(p => p.PublishedDate);
+        }
+
+        public int LibroMasLargo()
+        {
+            return librosCollection.Max(p => p.PageCount);
+        }
+
+        public Book LibroConMenosPaginas()
+        {
+            return librosCollection.Where(p => p.PageCount > 0).MinBy(p => p.PageCount);
+        }
+
+        public Book LibroConFechaMasReciente()
+        {
+            return librosCollection.MaxBy(p => p.PublishedDate);
+        }
     }
 }

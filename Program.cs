@@ -23,6 +23,28 @@ ImprimirValores(queries.LibrosDePython());
 ImprimirValores(queries.OrdenJava());
 ImprimirValores(queries.LibrosDescendentes());
 
+//Take y Skip
+ImprimirValores(queries.TresPrimeros());
+ImprimirValores(queries.MasdeCUtrocientas());
+
+//SELECT
+ImprimirValores(queries.TresPrimerosLibros());
+
+//COUNT y LONGCOUNT
+Console.WriteLine($"Se tiene lasiguiente cantidad de libros es: {queries.CantidadLibros()}");
+
+//MIN MAX
+queries.Linea();
+Console.WriteLine($"La fecha del libro con la fecha mas antigua es : {queries.FechaMasAntigua()}");
+Console.WriteLine($"El numero de paginas del libro con mas paginas es : {queries.LibroMasLargo()}");
+
+//MINBY MAXBY
+var bookMenor = queries.LibroConMenosPaginas();
+Console.WriteLine($"El libro con menos paginas que cero es : {bookMenor.Title}");
+
+var bookMayor = queries.LibroConFechaMasReciente();
+Console.WriteLine($"El libro con la fecha mas reciente es : {bookMayor.Title} {bookMayor.PublishedDate.ToShortDateString()}");
+
 queries.Linea();
 Console.WriteLine($"Algun libro no tiene status = {queries.TodoLosLibrosTienenStatus()}");
 Console.WriteLine($"Algun libro fue publicado en 2005 = {queries.AlgunLibroFuePublicadoEn()}");
