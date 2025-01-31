@@ -45,15 +45,44 @@ Console.WriteLine($"El libro con menos paginas que cero es : {bookMenor.Title}")
 var bookMayor = queries.LibroConFechaMasReciente();
 Console.WriteLine($"El libro con la fecha mas reciente es : {bookMayor.Title} {bookMayor.PublishedDate.ToShortDateString()}");
 
+//SUM Y AGGREGATE
+queries.Linea();
+Console.WriteLine($"La suma de las paginas con mas de 0 y menos de 500 es  : {queries.SumaDePaginas()}");
+Console.WriteLine($"Libros despues del 2015 son : {queries.LibroDespuesDel2015()}");
+
+//AVERAGE
+queries.Linea();
+Console.WriteLine($"Este es el promedio de caracteres en los titulos de nuestros libros : {queries.PromedioLibros()}");
+
+//GROUPBY
+ImprimirGrupo(queries.LibrosAgrupados());
+
 queries.Linea();
 Console.WriteLine($"Algun libro no tiene status = {queries.TodoLosLibrosTienenStatus()}");
 Console.WriteLine($"Algun libro fue publicado en 2005 = {queries.AlgunLibroFuePublicadoEn()}");
 
 void ImprimirValores(IEnumerable<Book> listLibros)
-{   queries.Linea();
-    Console.WriteLine("{0,-70} {1,7} {2, 11}\n","Titulo","N. Paginas", "Fecha Publicacion"); 
-    foreach(var item in listLibros)
+{
+    queries.Linea();
+    Console.WriteLine("{0,-70} {1,7} {2, 11}\n", "Titulo", "N. Paginas", "Fecha Publicacion");
+    foreach (var item in listLibros)
     {
         Console.WriteLine("{0,-70} {1,7} {2, 11}", item.Title, item.PageCount, item.PublishedDate.ToShortDateString());
     }
+}
+
+void ImprimirGrupo(IEnumerable<IGrouping<int, Book>> listdeLibros)
+{
+    queries.Linea();
+    foreach (var grupo in listdeLibros)
+    {
+        Console.WriteLine("");
+        Console.WriteLine($"Grupo {grupo.Key}");
+        Console.WriteLine("{0,-70} {1,7} {2, 11}\n", "Titulo", "N. Paginas", "Fecha Publicacion");
+        foreach (var item in grupo)
+        {
+            Console.WriteLine("{0,-70} {1,7} {2, 11}", item.Title, item.PageCount, item.PublishedDate.ToShortDateString());
+        }
+    }
+
 }

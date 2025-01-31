@@ -131,5 +131,38 @@ namespace linqProyect
         {
             return librosCollection.MaxBy(p => p.PublishedDate);
         }
+
+        public int SumaDePaginas()
+        {
+            return librosCollection.Where(p => p.PageCount >= 0 && p.PageCount <= 500).Sum(p => p.PageCount);
+        }
+
+
+        public string LibroDespuesDel2015()
+        {
+            return librosCollection
+            .Where(p => p.PublishedDate.Year > 2015)
+            .Aggregate("", (TitulosLibros, next) =>
+            {
+                if(TitulosLibros != string.Empty)
+                {
+                    TitulosLibros += " - " + next.Title;
+                }else{
+                    TitulosLibros += next.Title;
+                }
+
+                return TitulosLibros;
+            });
+        }
+
+        public double PromedioLibros()
+        {
+            return librosCollection.Average(p => p.Title.Length);
+        }
+
+        public IEnumerable<IGrouping<int, Book>> LibrosAgrupados()
+        {
+            return librosCollection.Where(p => p.PublishedDate.Year <= 2000).GroupBy(p => p.PublishedDate.Year);
+        }
     }
 }
