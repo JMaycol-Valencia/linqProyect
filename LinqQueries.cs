@@ -164,5 +164,19 @@ namespace linqProyect
         {
             return librosCollection.Where(p => p.PublishedDate.Year <= 2000).GroupBy(p => p.PublishedDate.Year);
         }
+
+        public ILookup<char, Book> DiccionarioPorLetra()
+        {
+            return librosCollection.ToLookup(p => p.Title[0], p => p) ;
+        }
+
+        public IEnumerable<Book> LibrosJoin()
+        {
+            var libros2005 = librosCollection.Where(p => p.PublishedDate.Year == 2005);
+
+            var libros500pag = librosCollection.Where(p => p.PageCount == 500);
+
+            return libros2005.Join(libros500pag, p => p.Title, x => x.Title, (p,x) => p);
+        }
     }
 }

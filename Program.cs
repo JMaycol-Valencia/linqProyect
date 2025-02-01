@@ -57,6 +57,14 @@ Console.WriteLine($"Este es el promedio de caracteres en los titulos de nuestros
 //GROUPBY
 ImprimirGrupo(queries.LibrosAgrupados());
 
+//LOOKUP
+var diccionario = queries.DiccionarioPorLetra();
+ImprimirDiccionario(diccionario, 'S');
+
+//JOIN
+ImprimirValores(queries.LibrosJoin());
+
+
 queries.Linea();
 Console.WriteLine($"Algun libro no tiene status = {queries.TodoLosLibrosTienenStatus()}");
 Console.WriteLine($"Algun libro fue publicado en 2005 = {queries.AlgunLibroFuePublicadoEn()}");
@@ -83,6 +91,16 @@ void ImprimirGrupo(IEnumerable<IGrouping<int, Book>> listdeLibros)
         {
             Console.WriteLine("{0,-70} {1,7} {2, 11}", item.Title, item.PageCount, item.PublishedDate.ToShortDateString());
         }
+    }
+}
+
+void ImprimirDiccionario(ILookup<char, Book> listdeLibros, char letter)
+{
+    queries.Linea();
+    Console.WriteLine("{0,-60} {1, 15} {2, 15}\n", "Titulo", "N. Paginas", "Fecha publicacion");
+    foreach (var item in listdeLibros[letter])
+    {
+        Console.WriteLine("{0,-60} {1, 15} {2, 15}", item.Title, item.PageCount, item.PublishedDate.Date.ToShortDateString());
     }
 
 }
