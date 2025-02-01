@@ -63,7 +63,7 @@ ImprimirDiccionario(diccionario, 'S');
 
 //JOIN
 ImprimirValores(queries.LibrosJoin());
-
+Console.WriteLine("nose");
 
 queries.Linea();
 Console.WriteLine($"Algun libro no tiene status = {queries.TodoLosLibrosTienenStatus()}");
